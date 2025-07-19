@@ -20,9 +20,6 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Validate
-      run: mvn validate
-
     - name: Test
       run: mvn test
 
