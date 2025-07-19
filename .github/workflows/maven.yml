@@ -2,13 +2,13 @@ name: Maven CI/CD Pipeline
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - name: Checkout code
@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17'  # or your project’s Java version
+          java-version: '17'  # Or 11 or 21 depending on your Maven project
 
       - name: Validate
         run: mvn validate
@@ -32,7 +32,8 @@ jobs:
       - name: Package
         run: mvn package
 
+      - name: Install
+        run: mvn install
+
       - name: Clean
         run: mvn clean
-
-
