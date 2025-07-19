@@ -2,9 +2,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -20,17 +20,22 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Validate
+    - name: Maven Validate
+      working-directory: ./my-app/my-app
       run: mvn validate
 
-    - name: Test
+    - name: Maven Test
+      working-directory: ./my-app/my-app
       run: mvn test
 
-    - name: Install
+    - name: Maven Install
+      working-directory: ./my-app/my-app
       run: mvn install
 
-    - name: Package
+    - name: Maven Package
+      working-directory: ./my-app/my-app
       run: mvn package
 
     - name: Run Application
+      working-directory: ./my-app/my-app
       run: mvn exec:java
