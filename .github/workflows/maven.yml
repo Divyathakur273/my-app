@@ -39,8 +39,11 @@ jobs:
     - name: Package
       working-directory: ./myapp
       run: mvn package
-      
+
+    - name: Run Java application
+      working-directory: ./myapp
+      run: java -jar target/*.jar
+
     - name: Clean
       working-directory: ./myapp
       run: mvn clean
-
