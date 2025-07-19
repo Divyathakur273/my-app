@@ -21,13 +21,17 @@ jobs:
         java-version: '17'
 
     - name: Test
-      run: mvn test
+      working-directory: ./my-app/myapp
+      run: mvn test 
 
     - name: Install
+      working-directory: ./my-app/myapp
       run: mvn install
 
     - name: Package
+      working-directory: ./my-app/myapp
       run: mvn package
 
     - name: Run Application
+      working-directory: ./my-app/myapp
       run: mvn exec:java
