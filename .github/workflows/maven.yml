@@ -30,7 +30,7 @@ jobs:
       
     - name: Compile
       working-directory: ./myapp
-      run: mvn Compile
+      run: mvn compile
       
     - name: Test
       working-directory: ./myapp
