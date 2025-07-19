@@ -42,7 +42,7 @@ jobs:
 
     - name: Run Java application
       working-directory: ./myapp
-      run: java -jar target/*.jar
+      run: java -jar target/myapp-1.0-SNAPSHOT.jar
 
     - name: Clean
       working-directory: ./myapp
