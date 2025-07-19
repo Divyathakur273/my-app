@@ -20,18 +20,27 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Test
+    - name: Validate
       working-directory: ./myapp
-      run: mvn test 
+      run: mvn validate
 
     - name: Install
       working-directory: ./myapp
       run: mvn install
+      
+    - name: Compile
+      working-directory: ./myapp
+      run: mvn Compile
+      
+    - name: Test
+      working-directory: ./myapp
+      run: mvn test 
 
     - name: Package
       working-directory: ./myapp
       run: mvn package
-
-    - name: Run Application
+      
+    - name: Clean
       working-directory: ./myapp
-      run: mvn exec:java
+      run: mvn clean
+
