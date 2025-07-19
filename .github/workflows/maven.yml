@@ -1,10 +1,10 @@
-name: Java CI
+name: Maven CI/CD Pipeline
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -14,12 +14,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
+      - name: Set up Java
+        uses: actions/setup-java@v3
         with:
-          java-version: '17'
           distribution: 'temurin'
+          java-version: '17'  # or your project’s Java version
 
-      - name: Build with Maven
-        run: mvn -f myapp/pom.xml clean install
+      - name: Validate
+        run: mvn validate
+
+      - name: Compile
+        run: mvn compile
+
+      - name: Run tests
+        run: mvn test
+
+      - name: Package
+        run: mvn package
+
+      - name: Clean
+        run: mvn clean
+
 
