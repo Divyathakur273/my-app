@@ -21,21 +21,16 @@ jobs:
         java-version: '17'
 
     - name: Validate
-      working-directory: /my-app
       run: mvn validate
 
     - name: Test
-      working-directory: /my-app
       run: mvn test
 
     - name: Install
-      working-directory: /my-app
       run: mvn install
 
     - name: Package
-      working-directory: /my-app
       run: mvn package
 
     - name: Run Application
-      working-directory: /my-app
       run: mvn exec:java
